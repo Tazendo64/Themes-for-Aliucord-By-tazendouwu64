@@ -1,0 +1,32 @@
+{
+  "name": "Waddle Dee!",
+  "author": "Tazuu64!",
+  "version": "0.1.1",
+  "background": {
+    "url": "https://raw.githubusercontent.com/Tazendo64/Themes-for-Aliucord-By-tazendouwu64/WADDLE-DEE%21/1000016154.png",
+    "overlay_alpha": 100,
+    "blur_radius": 3
+  },
+  "simple_colors": {
+    "background_main": "#00000000",
+    "background_secondary": "#A01B2E3C",
+    "accent": "#FF9933"
+  },
+  "fonts": {
+    "*": "https://raw.githubusercontent.com/Tazendo64/Themes-for-Aliucord-By-tazendouwu64/WADDLE-DEE%21/Korean_Calligraphy.ttf"
+  },
+  "sounds": {
+    "message_send": "https://raw.githubusercontent.com/Tazendo64/Themes-for-Aliucord-By-tazendouwu64/WADDLE-DEE%21/12-70.%20Treasure!.mp3",
+    "message_receive": "https://raw.githubusercontent.com/Tazendo64/Themes-for-Aliucord-By-tazendouwu64/WADDLE-DEE%21/02.%20Halken%20Logo.mp3",
+    "startup": "https://raw.githubusercontent.com/Tazendo64/Themes-for-Aliucord-By-tazendouwu64/WADDLE-DEE%21/INTRO.mp3",
+    "call_ringing": "https://raw.githubusercontent.com/Tazendo64/Themes-for-Aliucord-By-tazendouwu64/WADDLE-DEE%21/5-35.%20Save%20Hut.mp3",
+    "call_calling": "https://raw.githubusercontent.com/Tazendo64/Themes-for-Aliucord-By-tazendouwu64/WADDLE-DEE%21/12-65.%20Continue_.mp3"
+  },
+  "colors": {
+    "text_normal": "#FFFFFF",
+    "text_muted": "#A2D2CB",
+    "text_link": "#FFB3BA",
+    "text_brand": "#FF9933",
+    "header_primary": "#FF9933"
+  }
+}
