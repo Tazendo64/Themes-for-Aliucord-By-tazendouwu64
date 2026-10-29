@@ -1,0 +1,3 @@
+git add fuente.ttf
+git commit -m "style: subir archivo de fuente ttf"
+git push origin main
