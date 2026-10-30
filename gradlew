@@ -1,10 +1,8 @@
 #!/bin/sh
 
-# Configuración por defecto del Gradle Wrapper
 APP_NAME="Gradle"
 APP_BASE_NAME=`basename "$0"`
 
-# Resolver enlaces simbólicos si existen
 PRG="$0"
 while [ -h "$PRG" ] ; do
     ls=`ls -ld "$PRG"`
@@ -25,7 +23,6 @@ cd "$SAVED" >/dev/null
 
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
-# Intentar localizar el ejecutable de Java
 if [ -n "$JAVA_HOME" ] ; then
     if [ -x "$JAVA_HOME/bin/java" ] ; then
         JAVACMD="$JAVA_HOME/bin/java"
@@ -41,5 +38,4 @@ else
     }
 fi
 
-# Ejecutar Gradle
 exec "$JAVACMD" "-Xmx64m" "-Xms64m" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
