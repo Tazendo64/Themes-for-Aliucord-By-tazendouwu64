@@ -3,17 +3,9 @@ buildscript {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven { url 'https://aliucord.com' } // <-- Verifica que esta línea esté aquí
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath 'com.github.Aliucord:gradle-plugin:main-SNAPSHOT'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
     }
 }
