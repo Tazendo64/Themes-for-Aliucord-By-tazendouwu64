@@ -3,12 +3,10 @@ name: Build Aliucord Plugin
 on:
   push:
     branches:
-      - main
-      - master
+      - 'WADDLE-DEE!'
   pull_request:
     branches:
-      - main
-      - master
+      - 'WADDLE-DEE!'
   workflow_dispatch:
 
 jobs:
@@ -33,11 +31,10 @@ jobs:
 
       - name: Forzar instalacion de Gradle y Compilar
         run: |
-          gradle wrapper
           ./gradlew build
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: AliucordPlugin
-          path: app/build/outputs/apk/release/*.apk
+          path: app/build/outputs/**
