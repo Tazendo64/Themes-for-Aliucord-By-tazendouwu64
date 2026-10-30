@@ -15,8 +15,8 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    // CAMBIO CLAVE: Permite que convivan los repositorios centralizados con los de los scripts
-    repositoriesMode.set(RepositoriesMode.PRESERVE_EXISTING_REPOS)
+    // Corregido: Se usa la constante de texto directa para evitar el fallo de compilación del script
+    repositoriesMode.set(org.gradle.api.artifacts.dsl.DependencyResolutionManagement.RepositoriesMode.PRESERVE_EXISTING_REPOS)
     
     repositories {
         google()
