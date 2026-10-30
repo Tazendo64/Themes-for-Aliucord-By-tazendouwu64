@@ -77,6 +77,24 @@ public class WaddleDeeTheme extends Plugin {
             }
         );
 
+        // Inyección nativa del fondo de pantalla .png de Waddle Dee
+        try {
+            patcher.patch(View.class.getDeclaredMethod("onAttachedToWindow"),
+                new PrePatch(callFrame -> {
+                    View view = (View) callFrame.thisObject;
+                    int containerId = context.getResources().getIdentifier("container", "id", context.getPackageName());
+                    if (view.getId() == containerId) {
+                        int backgroundId = view.getContext().getResources().getIdentifier("waddle_background", "drawable", view.getContext().getPackageName());
+                        if (backgroundId != 0) {
+                            view.setBackgroundResource(backgroundId);
+                        }
+                    }
+                })
+            );
+        } catch (Exception e) { 
+            logger.error("Error al aplicar el fondo de pantalla del tema", e); 
+        }
+
         applyAdvancedTheme(context);
     }
 
@@ -205,22 +223,3 @@ public class WaddleDeeTheme extends Plugin {
         } catch (Exception e) { logger.error("Error patch: recibir", e); }
 
         try {
-            patcher.patch(com.discord.stores.StoreVoiceChannels.class.getDeclaredMethod("connectToVoiceChannel", long.class, boolean.class, boolean.class),
-                new PrePatch(callFrame -> playThemeSound(context, "waddle_call_start.mp3"))
-            );
-        } catch (Exception e) { logger.error("Error patch: llamar", e); }
-
-        try {
-            patcher.patch(com.discord.utilities.voip.VoipNotificationManager.class.getDeclaredMethod("showIncomingCallNotification", Context.class, com.discord.models.user.User.class, long.class),
-                new PrePatch(callFrame -> playThemeSound(context, "waddle_ringtone.mp3"))
-            );
-        } catch (Exception e) { logger.error("Error patch: ringtone", e); }
-    }
-
-    @Override
-    public void stop(Context context) {
-        commands.unregisterCommand("waddledee");
-        commands.unregisterCommand("waddledebug");
-        patcher.unpatchAll();
-    }
-}
