@@ -1,0 +1,1 @@
+int backgroundId = view.getContext().getResources().getIdentifier("waddle_background", "drawable", view.getContext().getPackageName());
