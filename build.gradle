@@ -1,13 +1,6 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
-        classpath 'com.github.Aliucord:gradle-plugin:main-SNAPSHOT'
-    }
+plugins {
+    id 'com.android.library' version '7.4.2' apply false
+    id 'com.github.Aliucord' version 'main-SNAPSHOT' apply false
 }
 
 allprojects {
