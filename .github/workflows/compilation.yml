@@ -31,8 +31,10 @@ jobs:
       - name: Grant Execute Permission for Gradlew
         run: chmod +x gradlew
 
-      - name: Build Aliucord Plugin
-        run: ./gradlew :app:assembleRelease --refresh-dependencies
+          - name: Forzar instalacion de Gradle y Compilar
+      run: |
+        gradle wrapper
+        ./gradlew build
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
