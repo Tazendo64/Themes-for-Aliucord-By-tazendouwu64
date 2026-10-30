@@ -35,6 +35,6 @@ plugins {
                                                                                                             aliucord {
                                                                                                                 author = "Tazendo64"
                                                                                                                     updateUrl = "https://github.com/Tazendo64/Themes-for-Aliucord-By-tazendouwu64"
-                                                                                                                    
+                                                                                                                    }
 
 }
