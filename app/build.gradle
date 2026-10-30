@@ -1,7 +1,5 @@
-plugins {
-    id 'com.android.library'
-    id 'com.github.Aliucord'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'com.aliucord.gradle'
 
 android {
     compileSdkVersion 33
