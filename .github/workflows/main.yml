@@ -18,13 +18,12 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Install and Setup Gradle 7.4
-        run: |
-          wget -q https://gradle.org
-          sudo unzip -q gradle-7.4-bin.zip -d /opt
-          echo "/opt/gradle-7.4/bin" >> $GITHUB_PATH
+      - name: Setup Gradle 7.4.2
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: '7.4.2'
 
-      - name: Build with Gradle 7.4
+      - name: Build with Gradle
         run: gradle assembleDebug --no-daemon --stacktrace
 
       - name: Upload Artifact
