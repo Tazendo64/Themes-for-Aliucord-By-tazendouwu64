@@ -23,20 +23,10 @@ jobs:
           distribution: 'zulu'
           java-version: '21'
 
-      - name: Setup Gradle
+      - name: Setup Gradle Estables
         uses: gradle/actions/setup-gradle@v4
-
-      - name: Corregir y Generar Gradle Wrapper
-        run: gradle wrapper
-
-      - name: Grant Execute Permission for Gradlew
-        run: chmod +x gradlew
+        with:
+          gradle-version: '8.5'
 
       - name: Compilar Proyecto
-        run: ./gradlew build
-
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: AliucordPlugin
-          path: app/build/outputs/**
+        run: gradle build --stacktrace
