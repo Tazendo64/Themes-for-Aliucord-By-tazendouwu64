@@ -2,7 +2,6 @@ pluginManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://github.com' }
         maven { url 'https://jitpack.io' }
         maven { url 'https://aliucord.com' }
     }
@@ -20,7 +19,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://github.com' }
         maven { url 'https://jitpack.io' }
         maven { url 'https://aliucord.com' }
     }
