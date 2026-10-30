@@ -18,15 +18,9 @@ jobs:
           distribution: 'zulu'
           java-version: '11'
 
-      - name: Install Gradle 7.4.2 Native
+      - name: Build with Fixed Gradle Version
         run: |
-          wget -q https://gradle.org
-          sudo unzip -q gradle-7.4.2-bin.zip -d /opt
-          echo "/opt/gradle-7.4.2/bin" >> $GITHUB_PATH
-
-      - name: Build with Gradle
-        run: |
-          export PATH=/opt/gradle-7.4.2/bin:$PATH
+          sudo ln -sf /usr/bin/gradle /usr/local/bin/gradle
           gradle assembleDebug --no-daemon --stacktrace
 
       - name: Upload Artifact
