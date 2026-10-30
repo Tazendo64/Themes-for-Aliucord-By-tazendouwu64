@@ -132,10 +132,12 @@ public class WaddleDeeTheme extends Plugin {
         try {
             File fontFile = new File(context.getExternalFilesDir(null), "Aliucord/fonts/WaddleFont.ttf");
             if (!fontFile.exists()) return;
-            Typeface customTypeface = Typeface.createFromFile(fontFile);
+            final Typeface customTypeface = Typeface.createFromFile(fontFile);
             patcher.patch(View.class.getDeclaredMethod("setTypeface", Typeface.class), 
                 new PrePatch(callFrame -> {
-                    callFrame.args[0] = customTypeface;
+                    if (callFrame.args != null && callFrame.args.length > 0) {
+                        callFrame.args[0] = customTypeface;
+                    }
                 })
             );
         } catch (Exception e) { logger.error("Error al inyectar tipografía", e); }
@@ -154,7 +156,7 @@ public class WaddleDeeTheme extends Plugin {
         try {
             patcher.patch(com.google.android.material.bottomsheet.BottomSheetDialogFragment.class.getDeclaredMethod("onViewCreated", View.class, android.os.Bundle.class),
                 new PrePatch(callFrame -> {
-                    if (callFrame.args.length > 0 && callFrame.args[0] instanceof View) {
+                    if (callFrame.args != null && callFrame.args.length > 0 && callFrame.args[0] instanceof View) {
                         View view = (View) callFrame.args[0];
                         view.setAlpha(0f);
                         view.setTranslationY(100f);
@@ -192,9 +194,9 @@ public class WaddleDeeTheme extends Plugin {
         try {
             patcher.patch(com.discord.stores.StoreMessages.class.getDeclaredMethod("handleMessageCreate", com.discord.models.message.Message.class),
                 new PrePatch(callFrame -> {
-                    if (callFrame.args.length > 0 && callFrame.args[0] instanceof com.discord.models.message.Message) {
+                    if (callFrame.args != null && callFrame.args.length > 0 && callFrame.args[0] instanceof com.discord.models.message.Message) {
                         com.discord.models.message.Message msg = (com.discord.models.message.Message) callFrame.args[0];
-                        if (msg.getAuthor().getId() != com.discord.stores.StoreUser.getSelf().getId()) {
+                        if (msg.getAuthor() != null && msg.getAuthor().getId() != com.discord.stores.StoreUser.getSelf().getId()) {
                             playThemeSound(context, "waddle_receive.mp3");
                         }
                     }
