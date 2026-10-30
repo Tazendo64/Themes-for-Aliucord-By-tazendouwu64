@@ -5,7 +5,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.github.Aliucord:Aliucord-Gradle-Plugin:main-SNAPSHOT'
+        classpath 'com.github.Aliucord:Aliucord-Gradle-Plugin:3.1.1'
     }
 }
 
