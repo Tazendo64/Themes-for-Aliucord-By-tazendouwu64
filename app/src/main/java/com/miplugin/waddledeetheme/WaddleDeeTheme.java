@@ -50,7 +50,12 @@ public class WaddleDeeTheme extends Plugin {
                 )
             ),
             ctx -> {
-                String seleccion = ctx.getRequiredString("sonido").toLowerCase().trim();
+                Object argumento = ctx.getScalar("sonido");
+                if (argumento == null) {
+                    return new CommandsAPI.CommandResult("❌ Por favor especifica un sonido. Ejemplo: /waddledebug sonido:enviar", null, false);
+                }
+                
+                String seleccion = argumento.toString().toLowerCase().trim();
                 String archivoSound = "";
 
                 switch (seleccion) {
@@ -126,6 +131,7 @@ public class WaddleDeeTheme extends Plugin {
     private void setupFont(Context context) {
         try {
             File fontFile = new File(context.getExternalFilesDir(null), "Aliucord/fonts/WaddleFont.ttf");
+            if (!fontFile.exists()) return;
             Typeface customTypeface = Typeface.createFromFile(fontFile);
             patcher.patch(View.class.getDeclaredMethod("setTypeface", Typeface.class), 
                 new PrePatch(callFrame -> {
@@ -143,7 +149,9 @@ public class WaddleDeeTheme extends Plugin {
                     fade.setDuration(250);
                 })
             );
+        } catch (Exception e) { logger.error("Error en parche de transición FragmentManager", e); }
 
+        try {
             patcher.patch(com.google.android.material.bottomsheet.BottomSheetDialogFragment.class.getDeclaredMethod("onViewCreated", View.class, android.os.Bundle.class),
                 new PrePatch(callFrame -> {
                     if (callFrame.args.length > 0 && callFrame.args[0] instanceof View) {
@@ -159,12 +167,13 @@ public class WaddleDeeTheme extends Plugin {
                     }
                 })
             );
-        } catch (Exception e) { logger.error("Error en transiciones", e); }
+        } catch (Exception e) { logger.error("Error en transición BottomSheet", e); }
     }
 
     private void playThemeSound(Context context, String fileName) {
         try {
             File soundFile = new File(context.getExternalFilesDir(null), "Aliucord/sounds/" + fileName);
+            if (!soundFile.exists()) return;
             MediaPlayer mp = new MediaPlayer();
             mp.setDataSource(soundFile.getPath());
             mp.setOnCompletionListener(MediaPlayer::release);
