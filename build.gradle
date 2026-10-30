@@ -2,12 +2,18 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        // Repositorio espejo para las dependencias personalizadas de Aliucord
         maven { url "https://jitpack.io" }
-        // Se añade un espejo público alternativo para dependencias Android/Jadx comunes
-        maven { url "https://gradle.org" }
     }
     dependencies {
-        // Forzamos el uso de JitPack para el plugin de Aliucord
         classpath "com.github.Aliucord:gradle-plugin:main-SNAPSHOT"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
     }
 }
