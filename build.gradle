@@ -5,7 +5,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.github.Aliucord:gradle-plugin:main-SNAPSHOT'
+        classpath 'com.github.Aliucord:Aliucord-Gradle-Plugin:main-SNAPSHOT'
     }
 }
 
