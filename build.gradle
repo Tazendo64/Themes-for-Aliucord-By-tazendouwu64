@@ -2,10 +2,10 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
-        maven { url 'https://aliucord.com' } // <-- Verifica que esta línea esté aquí
+        maven { url "https://jitpack.io" }
+        maven { url "https://aliucord.com" }
     }
     dependencies {
-        classpath 'com.github.Aliucord:gradle-plugin:main-SNAPSHOT'
+        classpath "com.github.Aliucord:gradle-plugin:main-SNAPSHOT"
     }
 }
