@@ -15,8 +15,8 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    // Corregido: Se usa la constante de texto directa para evitar el fallo de compilación del script
-    repositoriesMode.set(org.gradle.api.artifacts.dsl.DependencyResolutionManagement.RepositoriesMode.PRESERVE_EXISTING_REPOS)
+    // Corregido de forma nativa para Groovy usando la propiedad directa con String
+    repositoriesMode = RepositoriesMode.PRESERVE_EXISTING_REPOS
     
     repositories {
         google()
