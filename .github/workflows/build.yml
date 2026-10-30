@@ -1,5 +1,3 @@
-name: Build Aliucord Plugin
-
 on:
   push:
     branches:
