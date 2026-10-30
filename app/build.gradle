@@ -32,5 +32,5 @@ dependencies {
 
 aliucord {
     author = 'Tazendo64'
-    updateUrl = 'https://github.com'
+    updateUrl = 'https://githubusercontent.com'
 }
