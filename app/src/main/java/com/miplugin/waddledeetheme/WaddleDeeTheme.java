@@ -223,3 +223,8 @@ public class WaddleDeeTheme extends Plugin {
         } catch (Exception e) { logger.error("Error patch: recibir", e); }
 
         try {
+
+            git add .
+git commit -m "feat: unificar codigo java con cargador nativo de fondo de pantalla"
+git push origin master
+
