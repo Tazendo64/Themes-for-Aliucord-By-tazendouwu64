@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://jitpack.io' }
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = 'WaddleDeeAdvancedTheme'
+include ':app'
