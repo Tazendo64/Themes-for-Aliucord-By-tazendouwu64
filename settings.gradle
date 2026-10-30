@@ -1,2 +1,16 @@
-include ':app'
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'com.aliucord.gradle') {
+                useModule('com.github.Aliucord:gradle-plugin:main-SNAPSHOT')
+            }
+        }
+    }
+}
 
+include ':app'
