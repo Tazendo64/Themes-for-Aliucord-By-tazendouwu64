@@ -1,55 +1,41 @@
+name: Build Aliucord Plugin
+
 on:
-
- push:
-
- branches: [ main, master ]
-
- pull_request:
-
- branches: [ main, master ]
-
- workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
 
- build:
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
- runs-on: ubuntu-latest
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
 
- steps:
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
 
- - name: Checkout Repository
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x gradlew
 
- uses: actions/checkout@v4
+      - name: Build Aliucord Plugin
+        run: ./gradlew :app:assembleRelease --refresh-dependencies
 
- - name: Set up JDK 17
-
- uses: actions/setup-java@v4
-
- with:
-
- distribution: 'zulu'
-
- java-version: '17'
-
- - name: Setup Gradle
-
- uses: gradle/actions/setup-gradle@v4
-
- - name: Grant Execute Permission for Gradlew
-
- run: chmod +x gradlew
-
- - name: Build Aliucord Plugin
-
- run: ./gradlew :app:assembleRelease --refresh-dependencies
-
- - name: Upload Artifacts
-
- uses: actions/upload-artifact@v4
-
- with:
-
- name: AliucordPlugin
-
- path: app/build/outputs/apk/release/*.apk
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: AliucordPlugin
+          path: app/build/outputs/apk/release/*.apk
