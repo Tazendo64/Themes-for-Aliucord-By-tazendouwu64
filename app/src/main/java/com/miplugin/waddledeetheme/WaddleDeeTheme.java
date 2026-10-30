@@ -226,5 +226,5 @@ public class WaddleDeeTheme extends Plugin {
 
             git add .
 git commit -m "feat: unificar codigo java con cargador nativo de fondo de pantalla"
-git push origin master
+git push origin main
 
