@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.4.2'
-        classpath 'com.github.Aliucord:Aliucord-Gradle-Plugin:3.1.1'
+        classpath 'com.github.Aliucord:gradle-plugin:main-SNAPSHOT'
     }
 }
 
