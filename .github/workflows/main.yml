@@ -18,14 +18,13 @@ jobs:
           distribution: 'zulu'
           java-version: '21'
 
+      - name: Generate Fresh Gradle Wrapper
+        run: gradle wrapper --gradle-version 8.0
+
       - name: Build with Gradle
         run: |
-          if [ -f gradlew ]; then
-            chmod +x gradlew
-            ./gradlew assembleDebug --no-daemon --stacktrace
-          else
-            gradle assembleDebug --no-daemon --stacktrace
-          fi
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
