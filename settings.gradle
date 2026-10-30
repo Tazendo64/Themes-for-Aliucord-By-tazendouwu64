@@ -15,6 +15,9 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
+    // CAMBIO CLAVE: Permite que convivan los repositorios centralizados con los de los scripts
+    repositoriesMode.set(RepositoriesMode.PRESERVE_EXISTING_REPOS)
+    
     repositories {
         google()
         mavenCentral()
