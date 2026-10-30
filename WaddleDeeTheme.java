@@ -1,5 +1,7 @@
-package com.miplugin.waddledeetheme;
 app/src/main/java/com/miplugin/waddledeetheme/
+    
+    package com.miplugin.waddledeetheme;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
