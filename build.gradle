@@ -2,8 +2,10 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        // Repositorio espejo para las dependencias personalizadas de Aliucord
         maven { url "https://jitpack.io" }
+        // Repositorios oficiales correctos de Aliucord para resolver el plugin
+        maven { url "https://maven.aliucord.com/releases/" }
+        maven { url "https://maven.aliucord.com/snapshots/" }
     }
     dependencies {
         classpath "com.github.Aliucord:gradle-plugin:main-SNAPSHOT"
@@ -15,5 +17,8 @@ allprojects {
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        // Repositorios oficiales correctos de Aliucord para resolver dependencias internas
+        maven { url "https://maven.aliucord.com/releases/" }
+        maven { url "https://maven.aliucord.com/snapshots/" }
     }
 }
